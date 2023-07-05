@@ -15,15 +15,17 @@ set(SOURCES
     ui/iptablemodel.h ui/iptablemodel.cpp
 )
 
-add_executable(iptool ${SOURCES})
-target_include_directories(iptool PUBLIC
+add_executable(IpTools WIN32 MACOSX_BUNDLE ${SOURCES})
+target_include_directories(IpTools PUBLIC
                            ${CMAKE_SOURCE_DIR}/lib/include
                            ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-target_link_directories(iptool PUBLIC ${CMAKE_BINARY_DIR}/lib)
-#target_link_libraries(iptool PUBLIC ipv4 netip subnet utils)
+target_link_directories(IpTools PUBLIC ${CMAKE_BINARY_DIR}/lib)
+#target_link_libraries(IpTools PUBLIC ipv4 netip subnet utils)
 
-target_link_libraries(iptool PUBLIC
+target_link_libraries(IpTools PUBLIC
                       net
                       Qt${QT_VERSION_MAJOR}::Core
                       Qt${QT_VERSION_MAJOR}::Widgets)
+                    
+install(TARGETS IpTools LIBRARY DESTINATION ${CMAKE_INSTALL_BINDIR})

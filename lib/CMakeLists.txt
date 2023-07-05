@@ -1,5 +1,9 @@
+if(BUILD_SHARED)
+    set(LIB_BUILD_TYPE SHARED)
+else()
+    set(LIB_BUILD_TYPE STATIC)
+endif()
 
-set(LIB_BUILD_TYPE SHARED)
 set(LIB_SOURCEDIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(LIB_HEADERDIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
@@ -28,3 +32,5 @@ target_include_directories(net PUBLIC ${LIB_HEADERDIR})
 #add_library(subnet ${LIB_BUILD_TYPE} ${LIB_SOURCEDIR}/subnet.c ${LIB_HEADERDIR}/subnet.h)
 #target_link_libraries(subnet ipv4 netip utils)
 #target_include_directories(subnet PRIVATE ${LIB_HEADERDIR})
+
+install(TARGETS net LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
