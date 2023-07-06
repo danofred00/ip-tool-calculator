@@ -13,6 +13,7 @@ set(SOURCES
     ui/mainwindow.h ui/mainwindow.cpp ui/mainwindow.ui
     ui/basicframe.h ui/basicframe.cpp ui/basicframe.ui
     ui/advancedframe.h ui/advancedframe.cpp ui/advancedframe.ui
+    ui/helpdialog.h ui/helpdialog.cpp ui/helpdialog.ui
     ui/iptablemodel.h ui/iptablemodel.cpp
 )
 

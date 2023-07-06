@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "helpdialog.h"
 #include <QPushButton>
 #include <QTabBar>
 
@@ -14,6 +15,12 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::showHelp()
+{
+    auto helpDialog = HelpDialog(this);
+    helpDialog.exec();
 }
 
 void MainWindow::setup()
@@ -34,4 +41,6 @@ void MainWindow::setup()
     connect(ui->actionAbout_Qt, &QAction::triggered, [&](){
         QApplication::aboutQt();
     });
+
+    connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::showHelp);
 }
