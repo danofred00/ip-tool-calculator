@@ -8,11 +8,12 @@ set(PROJECT_VERSION_PATCH 0)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/IpTools-${PROJECT_VERSION}")
+if(BUILD_IN_LOCAL_DIR)
+    set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/IpTools-${PROJECT_VERSION}")
+endif()
+
 include(GNUInstallDirs)
 
 add_subdirectory(lib)
-#add_subdirectory(cli)
 add_subdirectory(src)
-
 add_subdirectory(cpack)
