@@ -8,6 +8,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
 
 set(SOURCES
     main.cpp
+    ipcalculator.h ipcalculator.cpp
     include/utilities.h
     ui/mainwindow.h ui/mainwindow.cpp ui/mainwindow.ui
     ui/basicframe.h ui/basicframe.cpp ui/basicframe.ui
