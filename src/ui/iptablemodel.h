@@ -2,9 +2,7 @@
 #define IPTABLEMODEL_H
 
 #include <QAbstractTableModel>
-#include "ipv4.h"
-#include "subnet.h"
-#include "netip.h"
+#include <QHash>
 
 #define COLUMN_COUNT 4
 
@@ -18,7 +16,7 @@ public:
         StringRole = Qt::UserRole + 1
     };
 
-    explicit IpTableModel(QList<subnetv4> * list, QObject *parent = nullptr);
+    explicit IpTableModel(QList<QHash<QString, QString>> * list, QObject *parent = nullptr);
 
     // Header:
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
@@ -38,7 +36,7 @@ public:
 
 private:
 
-    QList<subnetv4> * subnetList;
+    QList<QHash<QString, QString>> * subnetList;
 };
 
 #endif // IPTABLEMODEL_H

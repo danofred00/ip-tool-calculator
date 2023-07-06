@@ -4,10 +4,14 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QStandardPaths>
 
-#include "ipv4.h"
+#include "../ipcalculator.h"
 #include "netip.h"
 #include "utilities.h"
+
 
 #include <iostream>
 
@@ -28,15 +32,7 @@ BasicFrame::~BasicFrame()
 
 void BasicFrame::calculate()
 {
-    char *ip;
-    char *bin;
-    char *network;
-    char *netmask;
-    char *broadcast;
-    char ipclass;
-    char *type;
-
-    auto txt = encode(ui->ipEdit->text());
+   auto txt = encode(ui->ipEdit->text());
 
     if(validateIp(txt)) {
 
@@ -47,33 +43,27 @@ void BasicFrame::calculate()
 
             // calculate everything
             netipv4 netip = netipv4_create_from_str(_ipstr);
-            netmask = ipv4_toString(ipv4_create_from_cidr(netip.cidr));
-            network = ipv4_toString(netipv4_network(netip).ip);
-            broadcast = ipv4_toString(netipv4_broadcast(netip).ip);
-            ipclass = ipv4_class2char(ipv4_class(netip.ip));
-            bin = ipv4_tobin(netip.ip);
-            ip = ipv4_toString(netip.ip);
-            type = ipv4_type2str(ipv4_type(netip.ip));
-            QByteArray arr = QByteArray::number(netip.ip, 16).toUpper();
+            auto result = IpCalculator::basic(netip);
+            auto doc = QJsonDocument(QJsonObject::fromVariantMap(result));
 
-            // set the buffer
-            auto str = QString("************** RESULT ****************\n\n"
-                               "TARGET IP    :   %1\n"
-                               "CLASS ADDR   :   %2\n"
-                               "TYPE         :   %3\n"
-                               "NET ADDR     :   %4\n"
-                               "SUBNET MASK  :   %5\n"
-                               "BROADCAST    :   %6\n"
-                               "BINARY       :   %7\n"
-                               "DECIMAL      :   %8\n"
-                               "HEX          :   0x%9\n"
-                               "\n").arg(ip).arg(ipclass)
-                           .arg(type, network, netmask, broadcast, bin)
-                           .arg(netip.ip).arg(arr);
+//            // set the buffer
+//            auto str = QString("************** RESULT ****************\n\n"
+//                               "TARGET IP    :   %1\n"
+//                               "CLASS ADDR   :   %2\n"
+//                               "TYPE         :   %3\n"
+//                               "NET ADDR     :   %4\n"
+//                               "SUBNET MASK  :   %5\n"
+//                               "BROADCAST    :   %6\n"
+//                               "BINARY       :   %7\n"
+//                               "DECIMAL      :   %8\n"
+//                               "HEX          :   0x%9\n"
+//                               "\n").arg(result["ip"].toString()).arg(result["class"].toChar())
+//                           .arg(result["type"].toString(), result["network"].toString(), result["netmask"].toString(), result["broadcast"].toString(), result["bin"].toString())
+//                           .arg(result["decimal"].toUInt()).arg(result["hex"].toString());
 
 
             ui->result->setStyleSheet("color: #fff;");
-            ui->result->setText(str);
+            ui->result->setText( QString(doc.toJson()));
 
         } else {
             ui->result->setStyleSheet("color: #f00;");
@@ -88,7 +78,9 @@ void BasicFrame::calculate()
 
 void BasicFrame::save()
 {
-    QString path = QFileDialog::getSaveFileName(this, tr("Save File"), "./", tr("Text Files (*.txt);;All Files (*.*)"));
+    QString path = QFileDialog::getSaveFileName(this, tr("Save File"),
+                                                QStandardPaths::writableLocation(QStandardPaths::DesktopLocation),
+                                                tr("Text Files (*.txt);;All Files (*.*)"));
     if(!path.isEmpty())
         if(!saveFileContent(path, ui->result->text().toLatin1()))
         {

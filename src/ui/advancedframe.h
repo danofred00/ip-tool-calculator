@@ -26,7 +26,7 @@ private:
     void setup();
     Ui::AdvancedFrame *ui;
 
-    QList<subnetv4> list;
+    QList<QHash<QString, QString>> list;
     IpTableModel * model;
 };
 

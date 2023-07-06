@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QStandardPaths>
 
 #include "ipv4.h"
 #include "netip.h"
@@ -15,7 +16,7 @@ AdvancedFrame::AdvancedFrame(QWidget *parent) :
 {
     setup();
     // init the list
-    list = QList<subnetv4>(0);
+    list = QList<QHash<QString, QString>>(0);
     model = nullptr;
 }
 
@@ -68,7 +69,14 @@ void AdvancedFrame::calculate()
                 // display the table
                 list.clear();
                 for(auto i=0; i<nets; i++) {
-                    list.append(subnetv4_create(subnetv4_subnet(subnet, i)));
+                    netip = subnetv4_subnet(subnet, i);
+
+                    QHash<QString,QString> hash;
+                    hash.insert("network", ipv4_toString(netip.ip));
+                    hash.insert("netmask", ipv4_toString(ipv4_create_from_cidr(netip.cidr)));
+                    hash.insert("broadcast", ipv4_toString(netipv4_broadcast(netip).ip));
+
+                    list.append(hash);
                 }
 
                 if(model != nullptr) {
@@ -90,7 +98,9 @@ void AdvancedFrame::calculate()
 
 void AdvancedFrame::save()
 {
-    QString path = QFileDialog::getSaveFileName(this, tr("Save File"), "./", tr("Text Files (*.txt);;All Files (*.*)"));
+    QString path = QFileDialog::getSaveFileName(this, tr("Save File"),
+                                                QStandardPaths::writableLocation(QStandardPaths::DesktopLocation),
+                                                tr("Text Files (*.txt);;All Files (*.*)"));
     if(!path.isEmpty()) {
         QFile file {path};
         if(file.exists()) {

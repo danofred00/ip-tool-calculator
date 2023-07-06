@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QPushButton>
+#include <QTabBar>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +19,7 @@ MainWindow::~MainWindow()
 void MainWindow::setup()
 {
     ui->setupUi(this);
+    ui->tabWidget->tabBar()->setExpanding(true);
     // add some widgets
     basicFrame = new BasicFrame;
     advancedFrame = new AdvancedFrame;
