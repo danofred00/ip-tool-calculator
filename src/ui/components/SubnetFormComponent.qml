@@ -18,7 +18,7 @@ Item {
     RowLayout {
         anchors.fill: parent
         Label {
-            Layout.preferredWidth: 100
+            Layout.preferredWidth: 120
             text: label
         }
 

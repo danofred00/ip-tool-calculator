@@ -7,7 +7,9 @@ Drawer {
     id: drawer
 
     required property ApplicationWindow app
+
     signal aboutBtnClicked()
+    signal settingsBtnClicked()
     signal mediaButtonClicked(url: string)
 
     width: app.width > 500 ? 350 : app.width * 0.7
@@ -47,7 +49,7 @@ Drawer {
                     width: 118
                     anchors.centerIn: parent
                     fillMode: Image.PreserveAspectFit
-                    source: "qrc:/assets/logo/logo.jpg"
+                    source: "qrc:/ui/assets/logo/logo.jpg"
 
                 }
             }
@@ -97,11 +99,12 @@ Drawer {
 
     ListModel {
         id: drawerListModel
-        ListElement { type:"Application"; label: "About"; iconUrl: "qrc:/assets/icons/svg/alert-circle.svg"; onClicked: ()=>{ drawer.aboutBtnClicked() } }
-        ListElement { type:"Author"; label: "Github"; iconUrl: "qrc:/assets/icons/png/github-logo.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://github.com/danofred00") } }
-        ListElement { type:"Author"; label: "Facebook"; iconUrl: "qrc:/assets/icons/png/facebook.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://m.facebook.com/danofred00") } }
-        ListElement { type:"Author"; label: "Youtube"; iconUrl: "qrc:/assets/icons/png/youtube.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://m.youtube.com/@HarpTutos") } }
-        ListElement { type:"Author"; label: "Telegram"; iconUrl: "qrc:/assets/icons/png/telegram.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://t.me/HarpTutos") } }
+        ListElement { type:"Application"; label: "About"; iconUrl: "qrc:/ui/assets/icons/svg/alert-circle.svg"; onClicked: ()=>{ drawer.aboutBtnClicked() } }
+        ListElement { type:"Application"; label: "Settings"; iconUrl: "qrc:/ui/assets/icons/svg/alert-circle.svg"; onClicked: ()=>{ drawer.settingsBtnClicked() } }
+        ListElement { type:"Author"; label: "Github"; iconUrl: "qrc:/ui/assets/icons/png/github-logo.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://github.com/danofred00") } }
+        ListElement { type:"Author"; label: "Facebook"; iconUrl: "qrc:/ui/assets/icons/png/facebook.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://m.facebook.com/danofred00") } }
+        ListElement { type:"Author"; label: "Youtube"; iconUrl: "qrc:/ui/assets/icons/png/youtube.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://m.youtube.com/@HarpTutos") } }
+        ListElement { type:"Author"; label: "Telegram"; iconUrl: "qrc:/ui/assets/icons/png/telegram.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://t.me/HarpTutos") } }
     }
 
 }

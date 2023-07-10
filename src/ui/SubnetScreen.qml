@@ -35,7 +35,11 @@ Frame {
         fileMode: FileDialog.SaveFile
         onAccepted: function() {
             // code to save the file
+            // if save is accepted
+            if(subnetList == undefined)
+                return;
 
+            Utils.saveFileContent(currentFile, JSON.stringify(subnetList))
         }
     }
 
@@ -105,7 +109,7 @@ Frame {
 
                         }
                     } else {
-                        error = qsTr("Your input is not a valid network ip address")
+                        error = qsTr("Your input is not a valid ip address")
                     }
                 }
             }
@@ -115,7 +119,9 @@ Frame {
                 Layout.fillWidth: true
                 text: qsTr("Save")
                 onClicked: {
-                    console.log("Frame2 : Save Button Clicked")
+                    // save subnets
+                    fileDialog.open()
+                    console.log("[+] Subnets list saved")
                 }
             }
         }

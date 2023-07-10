@@ -2,6 +2,7 @@
 #define UTILS_H
 
 #include <QFile>
+#include <QSettings>
 #include <QStringEncoder>
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
@@ -15,8 +16,11 @@ class Utils : public QObject
   Q_OBJECT
   
 public:
-  explicit Utils(QObject * parent = nullptr) : QObject(parent)
-  {}
+  explicit Utils(QSettings * settings, QObject * parent = nullptr) : QObject(parent)
+  {
+      m_settings = settings;
+      //
+  }
   
 public slots:
 
@@ -51,6 +55,10 @@ public slots:
       return false;
     }
 
+    inline void saveSetting(QString key, QVariant value) {
+        m_settings->setValue(QAnyStringView(key), value);
+    }
+
     inline QByteArray encode(const QString str)
     {
       auto toUtf8 = QStringEncoder(QStringEncoder::Utf8);
@@ -62,6 +70,8 @@ public slots:
       return QString(doc.toJson());
     }
 
+private:
+    QSettings * m_settings;
 };
 
 #endif // UTILS_H

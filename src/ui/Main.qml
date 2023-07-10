@@ -12,7 +12,7 @@ ApplicationWindow {
     width: 450
     height: 700
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("Ip Tools")
 
     header: ToolBar {
 
@@ -44,6 +44,10 @@ ApplicationWindow {
             console.log("Media Button Clicked")
             Qt.openUrlExternally(url)
         }
+        onSettingsBtnClicked: function() {
+            drawer.close()
+            settingDialog.open()
+        }
     }
 
     AboutDialog {
@@ -51,6 +55,23 @@ ApplicationWindow {
         width: 300
         height: 200
         aboutText: qsTr("Developped by @Danofred\nMinSdkVersion 23 (android 6)\nTargetSdkVersion 33 (android 11 R)\nVersion 1.0")
+    }
+
+    SettingDialog {
+        id: settingDialog
+        onAccepted: {
+            console.log("[+] After restart, lang should be ", choosedLanguage)
+            Utils.saveSetting("LANG", choosedLanguage)
+            messageDialog.open()
+        }
+
+    }
+
+    MessageDialog{
+        id: messageDialog
+        title: qsTr("Settings")
+        buttons: MessageDialog.Ok
+        text: qsTr("Changes will be applies after rebooting the app.")
     }
 
     IpCalculator { id: calculator }
