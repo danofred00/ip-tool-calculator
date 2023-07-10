@@ -1,3 +1,6 @@
+
+set(BUILD_SHARED True) # set it on False to build as a static library
+
 if(BUILD_SHARED)
     set(LIB_BUILD_TYPE SHARED)
 else()

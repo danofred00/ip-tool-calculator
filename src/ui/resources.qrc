@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/icons/png/facebook.png</file>
+        <file>assets/icons/png/github-logo.png</file>
+        <file>assets/icons/png/telegram.png</file>
+        <file>assets/icons/png/youtube.png</file>
+        <file>assets/icons/png/zip.png</file>
+        <file>assets/icons/svg/alert-circle.svg</file>
+        <file>components/AppDrawer.qml</file>
+        <file>components/SubnetFormComponent.qml</file>
+        <file>BasicScreen.qml</file>
+        <file>Main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>SubnetScreen.qml</file>
+        <file>assets/logo/logo.jpg</file>
+        <file>AboutDialog.qml</file>
+    </qresource>
+</RCC>
