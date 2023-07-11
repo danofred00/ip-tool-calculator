@@ -12,9 +12,9 @@
 int main(int argc, char *argv[])
 {
     QApplication app {argc, argv};
-    QCoreApplication::setApplicationName("Ip Tools");
+    QCoreApplication::setApplicationName("cm.danofred.Ip-Tools");
     QCoreApplication::setOrganizationName("HarpTutos");
-    QCoreApplication::setOrganizationDomain("cm.danofred.iptools");
+    QCoreApplication::setOrganizationDomain("cm.danofred.HarpTutos");
 
     QQmlApplicationEngine engine;
     QTranslator translator;
@@ -25,12 +25,15 @@ int main(int argc, char *argv[])
     auto language = setting.value("LANG", QVariant("ENGLISH")).toString();
     if(language.compare("ENGLISH") != 0) {
 
-        if(translator.load("languages/fr_FR.qm"))
+        if(translator.load("fr_FR", ":/i18n"))
             qDebug() << "[+] Translation Loaded";
-        if(app.installTranslator(&translator))
+        else
+            qDebug() << "[-] Translation not Loaded";
+        if(QCoreApplication::installTranslator(&translator))
             qDebug() << "[+] Launched in French";
         else
             qDebug() << "[-] Couldn't install the translator";
+
     } else {
         qDebug() << "[+] Running App without Translator";
     }

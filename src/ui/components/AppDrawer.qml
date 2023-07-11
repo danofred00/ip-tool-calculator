@@ -99,8 +99,8 @@ Drawer {
 
     ListModel {
         id: drawerListModel
-        ListElement { type:"Application"; label: "About"; iconUrl: "qrc:/ui/assets/icons/svg/alert-circle.svg"; onClicked: ()=>{ drawer.aboutBtnClicked() } }
-        ListElement { type:"Application"; label: "Settings"; iconUrl: "qrc:/ui/assets/icons/svg/alert-circle.svg"; onClicked: ()=>{ drawer.settingsBtnClicked() } }
+        ListElement { type:"Application"; label: qsTr("About"); iconUrl: "qrc:/ui/assets/icons/png/info.png"; onClicked: ()=>{ drawer.aboutBtnClicked() } }
+        ListElement { type:"Application"; label: qsTr("Settings"); iconUrl: "qrc:/ui/assets/icons/png/settings.png"; onClicked: ()=>{ drawer.settingsBtnClicked() } }
         ListElement { type:"Author"; label: "Github"; iconUrl: "qrc:/ui/assets/icons/png/github-logo.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://github.com/danofred00") } }
         ListElement { type:"Author"; label: "Facebook"; iconUrl: "qrc:/ui/assets/icons/png/facebook.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://m.facebook.com/danofred00") } }
         ListElement { type:"Author"; label: "Youtube"; iconUrl: "qrc:/ui/assets/icons/png/youtube.png"; onClicked: ()=>{ drawer.mediaButtonClicked("https://m.youtube.com/@HarpTutos") } }

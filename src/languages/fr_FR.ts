@@ -17,9 +17,19 @@
 <context>
     <name>AppDrawer</name>
     <message>
-        <location filename="../ui/components/AppDrawer.qml" line="89"/>
+        <location filename="../ui/components/AppDrawer.qml" line="91"/>
         <source>By @Danofred0</source>
         <translation>Par @Danofred0</translation>
+    </message>
+    <message>
+        <location filename="../ui/components/AppDrawer.qml" line="102"/>
+        <source>About</source>
+        <translation>A Propos</translation>
+    </message>
+    <message>
+        <location filename="../ui/components/AppDrawer.qml" line="103"/>
+        <source>Settings</source>
+        <translation>Paramètres</translation>
     </message>
 </context>
 <context>
@@ -134,17 +144,17 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../ui/Main.qml" line="15"/>
         <source>Hello World</source>
-        <translation>Hello World</translation>
+        <translation type="vanished">Hello World</translation>
     </message>
     <message>
+        <location filename="../ui/Main.qml" line="15"/>
         <location filename="../ui/Main.qml" line="25"/>
         <source>Ip Tools</source>
         <translation>Ip Tools</translation>
     </message>
     <message>
-        <location filename="../ui/Main.qml" line="53"/>
+        <location filename="../ui/Main.qml" line="57"/>
         <source>Developped by @Danofred
 MinSdkVersion 23 (android 6)
 TargetSdkVersion 33 (android 11 R)
@@ -155,90 +165,127 @@ TargetSdkVersion 33 (android 11 R)
 Version 1.0</translation>
     </message>
     <message>
-        <location filename="../ui/Main.qml" line="66"/>
+        <location filename="../ui/Main.qml" line="72"/>
+        <source>Settings</source>
+        <translation>Paramètres</translation>
+    </message>
+    <message>
+        <location filename="../ui/Main.qml" line="74"/>
+        <source>Changes will be applies after rebooting the app.</source>
+        <translation>Les changements seront appliquées après le redémarrage de l&apos;application</translation>
+    </message>
+    <message>
+        <location filename="../ui/Main.qml" line="87"/>
         <source>Basic Mode</source>
         <translation>Model Simple</translation>
     </message>
     <message>
-        <location filename="../ui/Main.qml" line="73"/>
+        <location filename="../ui/Main.qml" line="94"/>
         <source>Subnet Model</source>
         <translation>Calculs Sous Reseaux</translation>
     </message>
     <message>
-        <location filename="../ui/Main.qml" line="100"/>
+        <location filename="../ui/Main.qml" line="121"/>
         <source>Your input is not a valid Ip address</source>
         <translation>Vous n&apos;avez pas entrer une IP valide</translation>
     </message>
     <message>
-        <location filename="../ui/Main.qml" line="121"/>
+        <location filename="../ui/Main.qml" line="142"/>
         <source>Your entry is not a network ipv4 address</source>
         <translation>Votre entrée n&apos;est pas une adresse de Reseau IPv4</translation>
     </message>
 </context>
 <context>
-    <name>SubnetScreen</name>
+    <name>SettingDialog</name>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="51"/>
-        <source>Network IP : </source>
-        <translation>IP Reseau :</translation>
+        <location filename="../ui/SettingDialog.qml" line="8"/>
+        <source>Settings</source>
+        <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="56"/>
-        <source>Enter a Network Ip. Default = 0.0.0.0/0</source>
-        <translation>Par Defaut : 0.0.0.0/0</translation>
+        <location filename="../ui/SettingDialog.qml" line="20"/>
+        <source>Choose Language</source>
+        <translation>Choisir votre langue</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="78"/>
-        <source>Calculate</source>
-        <translation>Calculer</translation>
-    </message>
-    <message>
-        <location filename="../ui/SubnetScreen.qml" line="108"/>
-        <source>Your input is not a valid network ip address</source>
-        <translation>Vous n&apos;avez pas entrer une Ip de reseau valide</translation>
-    </message>
-    <message>
-        <location filename="../ui/SubnetScreen.qml" line="116"/>
+        <location filename="../ui/SettingDialog.qml" line="35"/>
         <source>Save</source>
         <translation>Sauvegarder</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="127"/>
+        <location filename="../ui/SettingDialog.qml" line="36"/>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+</context>
+<context>
+    <name>SubnetScreen</name>
+    <message>
+        <location filename="../ui/SubnetScreen.qml" line="55"/>
+        <source>Network IP : </source>
+        <translation>IP Reseau :</translation>
+    </message>
+    <message>
+        <location filename="../ui/SubnetScreen.qml" line="60"/>
+        <source>Enter a Network Ip. Default = 0.0.0.0/0</source>
+        <translation>Par Defaut : 0.0.0.0/0</translation>
+    </message>
+    <message>
+        <location filename="../ui/SubnetScreen.qml" line="82"/>
+        <source>Calculate</source>
+        <translation>Calculer</translation>
+    </message>
+    <message>
+        <source>Your input is not a valid network ip address</source>
+        <translation type="vanished">Vous n&apos;avez pas entrer une Ip de reseau valide</translation>
+    </message>
+    <message>
+        <location filename="../ui/SubnetScreen.qml" line="112"/>
+        <source>Your input is not a valid ip address</source>
+        <translation>Votre entrée n&apos;est pas une IP valide</translation>
+    </message>
+    <message>
+        <location filename="../ui/SubnetScreen.qml" line="120"/>
+        <source>Save</source>
+        <translation>Sauvegarder</translation>
+    </message>
+    <message>
+        <location filename="../ui/SubnetScreen.qml" line="133"/>
         <source>Subnet Mask</source>
         <translation>Masque</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="132"/>
+        <location filename="../ui/SubnetScreen.qml" line="138"/>
         <source>Base Network</source>
         <translation>Reseau de Base</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="137"/>
+        <location filename="../ui/SubnetScreen.qml" line="143"/>
         <source>Hex</source>
         <translation>Hex</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="142"/>
+        <location filename="../ui/SubnetScreen.qml" line="148"/>
         <source>Decimal</source>
         <translation>Decimal</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="147"/>
+        <location filename="../ui/SubnetScreen.qml" line="153"/>
         <source>Class Address</source>
         <translation>Classe</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="152"/>
+        <location filename="../ui/SubnetScreen.qml" line="158"/>
         <source>Type</source>
         <translation>Type</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="157"/>
+        <location filename="../ui/SubnetScreen.qml" line="163"/>
         <source>Subnet Count</source>
         <translation>Nbr sous-reseaux</translation>
     </message>
     <message>
-        <location filename="../ui/SubnetScreen.qml" line="162"/>
+        <location filename="../ui/SubnetScreen.qml" line="168"/>
         <source>Hosts/Subnet</source>
         <translation>Host/SR</translation>
     </message>

@@ -81,10 +81,9 @@ qt_add_resources(IpTools assets PREFIX "/" FILES ${ASSETS_FILES})
 # Add translations
 set(TSFILES ${CMAKE_CURRENT_SOURCE_DIR}/languages/fr_FR.ts)
 
-set_source_files_properties(${TSFILES}
-    PROPERTIES OUTPUT_LOCATION "${CMAKE_CURRENT_BINARY_DIR}/languages")
-qt_add_translations(IpTools TS_FILES ${TSFILES})
-
+#set_source_files_properties(${TSFILES}
+#    PROPERTIES OUTPUT_LOCATION "${CMAKE_CURRENT_BINARY_DIR}/languages")
+qt_add_translations(IpTools TS_FILES ${TSFILES} RESOURCE_PREFIX "/i18n")
 
 install(TARGETS IpTools
     BUNDLE DESTINATION .
